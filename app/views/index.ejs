@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <% if(locals.posts){ %>
+      <% for(let p of posts){ %>
+        <h2><a href="/<%= p.id %>"><%= p.title %></a></h2>
+      <% } %>
+    <% } else if(locals.post) { %>
+      <%- include(post.source) %>
+    <% } else { %>
+      <p>No post to display</p>
+    <% } %>
+
+  </body>
+</html>
